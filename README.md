@@ -8,14 +8,18 @@ Replace all instances of `projectname` with the name you want to use for your pr
 cd Documents/Sites
 composer create-project madmadmad/craft-starter projectname
 cd projectname
-craft install
 npm install
 git init
 git add .
 git commit -m 'project created'
 ```
 
-You can now add this project folder to tower! See below for instructions on deploying to forge.
+Next, you can install craft via command line, or in the browser. You'll need a Forge server & database created before installation, see those instructions below.
+
+```
+craft install
+```
+
 
 ## II. Versioning
 There is a twig variable in the `_layout.html` file. Updating that variable will version bump all css and js.
