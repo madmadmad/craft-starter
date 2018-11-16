@@ -1,0 +1,15 @@
+@import "globals/globals";
+@import "components/components";
+
+html,
+body {
+  background-color: $white;
+}
+
+.reveal {
+  visibility: hidden;
+}
+
+.sr-only {
+  @include sr-only;
+}

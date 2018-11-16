@@ -1,0 +1,70 @@
+// antialiasing mode font rendering
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// clearfix
+@mixin clearfix() {
+  &:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+
+// media queries
+@mixin media-breakpoint-up($canvas) {
+  @if $canvas == sm {
+   @media (min-width: $sm) { @content; }
+  }
+  @else if $canvas == md {
+   @media (min-width: $md) { @content; }
+  }
+  @else if $canvas == lg {
+   @media (min-width: $lg) { @content; }
+  }
+  @else if $canvas == xl {
+   @media (min-width: $xl) { @content; }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($canvas) {
+  @if $canvas == xs {
+   @media (max-width: ($sm - 1)) { @content; }
+  }
+  @else if $canvas == sm {
+   @media (max-width: ($md - 1)) { @content; }
+  }
+  @else if $canvas == md {
+   @media (max-width: ($lg - 1)) { @content; }
+  }
+  @else if $canvas == lg {
+   @media (max-width: ($xl - 1)) { @content; }
+  }
+  @else {
+    @content;
+  }
+}
+
+// animate property
+@mixin transition($element) {
+  animation-timing-function: $animation-timing;
+  transition: $element $animation-duration;
+}
+
+// screen reader only
+@mixin sr-only() {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

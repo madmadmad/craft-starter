@@ -1,0 +1,15 @@
+/* TEAM */
+
+Creator: Madhouse
+URL: https://madmadmad.com
+Description: Madhouse is a multidisciplinary design firm in Toledo, Ohio. We specialize in branding, print design, website design, motion graphics and video production.
+
+/* THANKS */
+
+CraftCMS - https://craftcms.com
+Pixel & Tonic - https://pixelandtonic.com
+
+/* SITE */
+
+Standards: HTML5, CSS3
+Components: Craft CMS 3, Yii2, PHP, JavaScript

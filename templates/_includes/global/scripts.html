@@ -1,0 +1,19 @@
+{% if craft.app.config.general.devMode %}
+  <script src="//localhost:9000/livereload.js"></script>
+{% endif %}
+
+<script>
+  window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName|e('js') }}";
+  window.csrfTokenValue = "{{ craft.app.request.csrfToken|e('js') }}";
+
+  loadjs('/js/main.js?v={{version}}', function() {
+    initMain();
+
+    if ($('.map').length) {
+      loadjs(['https://maps.googleapis.com/maps/api/js?key=AIzaSyAiGNDs00dLCkkwI7U_jwT6yQxSt7zB3hQ&libraries=geometry', '/js/map.js?v={{version}}'], function() {
+        initMap();
+      });
+    }
+
+  });
+</script>

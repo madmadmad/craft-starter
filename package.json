@@ -1,0 +1,24 @@
+{
+  "name": "craft-starter",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madmadmad/craft-starter.git"
+  },
+  "author": "madhouse",
+  "dependencies": {
+    "autoprefixer": "^9.1.0",
+    "dotenv": "^5.0.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mjml": "^1.0.2",
+    "grunt-postcss": "^0.9.0",
+    "grunt-purifycss": "^0.1.2",
+    "grunt-sass": "^1.1.0",
+    "mjml": "^3.3.0",
+    "npm": "^6.0.0"
+  }
+}

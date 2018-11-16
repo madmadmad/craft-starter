@@ -1,0 +1,88 @@
+section {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+
+  &:empty {
+    margin: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  header,
+  nav,
+  section,
+  footer {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, $xl) 1fr;
+
+    .container {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+    }
+  }
+}
+
+.two-column {
+  @include media-breakpoint-down(md) {
+    > div + div {
+      margin-top: $spacer/2;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: $gutter; // IE doesn't support grid gaps. See hack below
+
+    // IE requires explicit grid placement
+    > *:nth-child(1) {
+      grid-column: 1;
+    }
+
+    > *:nth-child(2) {
+      grid-column: 2;
+    }
+  }
+}
+
+.three-column {
+  @include media-breakpoint-down(md) {
+    > div + div {
+      margin-top: $spacer/2;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: $gutter; // IE doesn't support grid gaps. See hack below
+
+    // IE requires explicit grid placement
+    > *:nth-child(1) {
+      grid-column: 1;
+    }
+
+    > *:nth-child(2) {
+      grid-column: 2;
+    }
+
+    > *:nth-child(3) {
+      grid-column: 2;
+    }
+  }
+}
+
+
+// IE 10 & 11 MEDIA QUERY
+// These browsers don't support the grid-gap attribute
+// Here we go with the hack
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .two-column, .three-column {
+    margin: -$gutter/2;
+  }
+
+  .grid-gap {
+    padding: $gutter/2;
+  }
+}
