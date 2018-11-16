@@ -8,7 +8,7 @@
   },
   "author": "madhouse",
   "dependencies": {
-    "autoprefixer": "^9.1.0",
+    "autoprefixer": "^9.3.1",
     "dotenv": "^5.0.1",
     "grunt": "^0.4.5",
     "grunt-contrib-cssmin": "^1.0.1",
@@ -18,7 +18,7 @@
     "grunt-postcss": "^0.9.0",
     "grunt-purifycss": "^0.1.2",
     "grunt-sass": "^1.1.0",
-    "mjml": "^3.3.0",
-    "npm": "^6.0.0"
+    "mjml": "^3.3.5",
+    "npm": "^6.4.1"
   }
 }
