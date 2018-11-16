@@ -6,7 +6,7 @@ Replace all instances of `projectname` with the name you want to use for your pr
 
 ```
 cd Documents/Sites
-composer create-project madmadmad/craft-starter projectname
+composer create-project madhouse/craft-starter projectname
 cd projectname
 npm install
 git init
