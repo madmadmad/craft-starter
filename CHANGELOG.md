@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3
+
+### Modified
+- NPM module versions
+
 ## 1.0.2 - 2018-11-16
 
 ### Modified
