@@ -30,6 +30,8 @@ At this point, you'll need to provision a server from Forge. Once the server is 
 1. Create a database for your craft install to use. Write down the credentials.
 2. On the network tab, create a MYSQL exception on port 3306 for the IP `24.52.113.58`
 
+More Forge instructions available (here)[https://github.com/madmadmad/craft-starter/wiki/Forge-Server-Setup].
+
 ### Terminal
 Return to terminal. You should be in the project folder.
 ```
@@ -49,6 +51,8 @@ Create a new site on your server. In the site screen:
 
 ### Domains
 You'll need to set up your dev domain in homestead and in Hover.
+
+More Homestead instructions available (here)[https://github.com/madmadmad/craft-starter/wiki/Using-Homestead].
 
 ## II. Versioning
 There is a twig variable in the `_layout.html` file. Updating that variable will version bump all css and js.
