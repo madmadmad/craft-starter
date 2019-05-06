@@ -8,7 +8,6 @@
   },
   "author": "madhouse",
   "dependencies": {
-    "autoprefixer": "^9.3.1",
     "dotenv": "^5.0.1",
     "grunt": "^0.4.5",
     "grunt-contrib-cssmin": "^1.0.1",
