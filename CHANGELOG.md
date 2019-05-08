@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.5
+
+### Removed
+- composer.lock so project installs with latest stable versions
+
+## 1.0.4
+
+### Modified
+- Documentation for clarity
+- Removed unneeded node package
+
 ## 1.0.3
 
 ### Modified
