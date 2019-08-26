@@ -1,7 +1,13 @@
 {
   "name": "madhouse/craft-starter",
   "description": "A Craft CMS boilerplate.",
-  "version": "1.0.7",
+  "version": "1.0.8",
+  "authors": [
+      {
+          "name": "Madhouse",
+          "homepage": "https://madmadmad.com"
+      }
+  ],
   "require": {
     "craftcms/cms": "^3.0.0",
     "vlucas/phpdotenv": "^2.4.0"
