@@ -3,18 +3,18 @@
 
   {% set version = '0.01' %}
 
-  {% include 'includes/global/head' with {version: version} %}
+  {% include '_includes/global/head' with {version: version} %}
 
   <body class="{{class|default('')}}">
 
-    {% include 'includes/global/navbar' %}
+    {% include '_includes/global/navbar' %}
 
     <main>
       {% block content %}{% endblock %}
     </main>
 
-    {% include 'includes/global/footer' %}
+    {% include '_includes/global/footer' %}
 
-    {% include 'includes/global/scripts' with {version: version} %}
+    {% include '_includes/global/scripts' with {version: version} %}
   </body>
 </html>
