@@ -1,13 +1,7 @@
 {
   "name": "craft-starter",
-  "version": "1.0.7",
+  "version": "0.1.0",
   "license": "UNLICENSED",
-  "authors": [
-    {
-        "name": "Madhouse",
-        "homepage": "https://madmadmad.com"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/madmadmad/craft-starter.git"
