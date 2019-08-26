@@ -10,7 +10,7 @@
     initMain();
 
     if ($('.map').length) {
-      loadjs(['https://maps.googleapis.com/maps/api/js?key=AIzaSyAiGNDs00dLCkkwI7U_jwT6yQxSt7zB3hQ&libraries=geometry', '/js/map.js?v={{version}}'], function() {
+      loadjs(['/js/map.js?v={{version}}'], function() {
         initMap();
       });
     }
