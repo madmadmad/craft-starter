@@ -1,0 +1,12 @@
+{% macro awsImage(image, width, height = null, fit = 'cover', position) %}
+
+{% set settings = {
+    width: width,
+    height: height,
+    fit: fit,
+    position: position,
+} %}
+    
+{{ craft.awsserverlessimagehandler.getImgUrl(image, settings) }}
+
+{% endmacro %}
