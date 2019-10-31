@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        sourceMap: false,
+        sourceMap: true,
         precision: 4,
         outputStyle: "compact"
       },
@@ -35,35 +35,14 @@ module.exports = function(grunt) {
 
     postcss: {
       options: {
-        processors: [require("autoprefixer")({ grid: true, flexbox: true })]
+        processors: [
+          require("autoprefixer")({ grid: true, flexbox: true }),
+          require('cssnano')()
+        ]
       },
       dist: {
         files: {
           "public/css/main.css": ["public/css/main.css"],
-          "public/css/cp.css": ["public/css/cp.css"]
-        }
-      }
-    },
-
-    purifycss: {
-      target: {
-        src: ["templates/**/*.html", "public/js/*.js"],
-        css: ["public/css/main.css"],
-        dest: "public/css/main.css"
-      }
-    },
-
-    cssmin: {
-      options: {
-        shorthandCompacting: true
-      },
-      target: {
-        files: {
-          // minify bootstrap, third pary, and main in that order
-          "public/css/main.css": [
-            "public/css/third-party/*.css",
-            "public/css/main.css"
-          ],
           "public/css/cp.css": ["public/css/cp.css"]
         }
       }
@@ -114,7 +93,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask("script", ["uglify"]);
-  grunt.registerTask("style", ["sass", "postcss", "purifycss", "cssmin"]);
+  grunt.registerTask("style", ["sass", "postcss"]);
   grunt.registerTask("email", ["mjml"]);
   grunt.registerTask("default", ["script", "style", "email", "watch"]);
 
@@ -122,7 +101,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-postcss");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-purifycss");
   grunt.loadNpmTasks("grunt-mjml");
 };
