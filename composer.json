@@ -1,6 +1,7 @@
 {
   "name": "madhouse/craft-starter",
   "description": "A Craft CMS boilerplate.",
+
   "version": "1.0.10.4",
   "authors": [
       {
@@ -33,7 +34,7 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"
     ]
   }
 }
