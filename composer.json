@@ -1,7 +1,7 @@
 {
   "name": "madhouse/craft-starter",
   "description": "A Craft CMS boilerplate.",
-  "version": "1.0.10",
+  "version": "1.0.10.4",
   "authors": [
       {
           "name": "Madhouse",
@@ -32,12 +32,8 @@
     }
   },
   "scripts": {
-    "post-create-project-cmd": [
-      "./craft setup/security-key",
-      "git init",
-      "git commit -m 'initial commit'",
-      "git remote add origin https://github.com/madmadmad/${PWD##*/}.git",
-      "git push -u origin master"
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ]
   }
 }
