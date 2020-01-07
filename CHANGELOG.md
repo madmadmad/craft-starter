@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.10.5
+
+- added concat pass to Grunt to combine third-party folder with main.css
+- fix /storage debacle (hopefully)
+
 ## 1.0.5
 
 ### Removed

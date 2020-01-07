@@ -12,6 +12,7 @@
     "cssnano": "^4.1.10",
     "dotenv": "^5.0.1",
     "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-uglify": "^0.11.1",
     "grunt-contrib-watch": "^0.6.1",
