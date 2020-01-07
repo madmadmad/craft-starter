@@ -33,6 +33,14 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      css: {
+        files: {
+          'public/css/main.css': ["public/css/lib/normalize.css", "public/css/third-party/*.css", "public/css/main.css"],
+        },
+      },
+    },
+
     postcss: {
       options: {
         processors: [
@@ -41,10 +49,16 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        files: {
-          "public/css/main.css": ["public/css/main.css"],
-          "public/css/cp.css": ["public/css/cp.css"]
-        }
+        files: [
+          {
+            src: "public/css/main.css",
+            dest: 'public/css/main.css'
+          }, 
+          {
+            src: 'public/css/cp.css',
+            dest: 'public/css/cp.css'
+          }
+        ]
       }
     },
 
@@ -93,12 +107,13 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask("script", ["uglify"]);
-  grunt.registerTask("style", ["sass", "postcss"]);
+  grunt.registerTask("style", ["sass", "concat", "postcss"]);
   grunt.registerTask("email", ["mjml"]);
   grunt.registerTask("default", ["script", "style", "email", "watch"]);
 
   grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-postcss");
+  grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-mjml");

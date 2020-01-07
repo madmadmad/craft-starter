@@ -19,4 +19,6 @@ node_modules/*
 /.env
 /.idea
 /vendor
+/storage/*
+!/storage/.gitkeep
 public/imager

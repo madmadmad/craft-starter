@@ -2,7 +2,7 @@
   "name": "madhouse/craft-starter",
   "description": "A Craft CMS boilerplate.",
 
-  "version": "1.0.10.4",
+  "version": "1.0.10.5",
   "authors": [
       {
           "name": "Madhouse",
@@ -18,8 +18,6 @@
     "dutchheight/aws-serverless-image-handler": "^1.1.2",
     "verbb/super-table": "^2.3.0",
     "vlucas/phpdotenv": "^2.4.0"
-
-    
   },
   "autoload": {
     "psr-4": {
