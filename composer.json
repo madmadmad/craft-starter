@@ -1,8 +1,6 @@
 {
   "name": "madhouse/craft-starter",
   "description": "A Craft CMS boilerplate.",
-
-  "version": "1.0.11",
   "authors": [
       {
           "name": "Madhouse",
