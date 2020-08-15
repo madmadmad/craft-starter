@@ -7,7 +7,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-
+.vs-code
 
 # Development Environment #
 ############################################
@@ -19,6 +19,4 @@ node_modules/*
 /.env
 /.idea
 /vendor
-/storage/*
-!/storage/.gitkeep
-public/imager
+.DS_Store

@@ -7,6 +7,7 @@
  *
  * @see craft\config\GeneralConfig
  */
+use craft\helpers\App;
 
 return [
     // Global settings
@@ -24,7 +25,7 @@ return [
         'cpTrigger' => 'admin',
 
         // The secure key Craft will use for hashing and encrypting data
-        'securityKey' => getenv('SECURITY_KEY'),
+        'securityKey' => App::env('SECURITY_KEY'),
     ],
 
     // Dev environment settings
@@ -40,11 +41,15 @@ return [
     'staging' => [
         // Base site URL
         'siteUrl' => null,
+        // Set this to `false` to prevent administrative changes from being made on staging
+        'allowAdminChanges' => true,
     ],
 
     // Production environment settings
     'production' => [
         // Base site URL
         'siteUrl' => null,
+        // Set this to `false` to prevent administrative changes from being made on production
+        'allowAdminChanges' => true,
     ],
 ];
