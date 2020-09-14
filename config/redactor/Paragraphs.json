@@ -1,0 +1,16 @@
+{
+  "buttons": ["formatting"],
+  "formatting": ["p","h2", "h3", "h4", "h5", "h6"],
+  "formattingAdd": {
+      "large-paragraph": {
+            "title": "Large Paragraph",
+            "api": "module.block.format",
+            "args": {
+                "tag": "p",
+                "class": "medium",
+                "type": "toggle"
+            }
+      }
+  },
+  "toolbarFixed": true
+}

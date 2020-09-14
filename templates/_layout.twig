@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% set version = '0.01' %}
+  {# Using Blocks in this manner provides flexibility as projects progress.  #}
+  {# Need to add something to the head on a certain page? Do like so... #}
 
-  {% include '_includes/global/head' with {version: version} %}
+  {# 
+  {% block head  %}
+    {{ parent() }}
 
-  <body class="{{class|default('')}}">
+    <link rel="stylesheet" href="#custom-link-or-meta-tag-here">
+  {% endblock %} 
+  #}
 
-    {% include '_includes/global/navbar' %}
+  <head>
+    {% block head %}
+      {{ include('_includes/global/head') }}
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <header>
+      {% block header %}
+        {{ include('_includes/global/header') }}
+      {% endblock %}
+    </header>
 
     <main>
       {% block content %}{% endblock %}
     </main>
 
-    {% include '_includes/global/footer' %}
+    <footer>
+      {% block footer %}
+        {{ include('_includes/global/footer') }}
+      {% endblock %}
+    </footer>
 
-    {% include '_includes/global/scripts' with {version: version} %}
+    {% block scripts %}
+      {{ include('_includes/global/scripts') }}
+    {% endblock %}
+    
   </body>
 </html>

@@ -39,6 +39,12 @@ class Module extends \yii\base\Module
 
         parent::init();
 
-        // Custom initialization code goes here...
+        // ? GENERAL ERROR LOG FILE
+        $errorTarget = new \craft\log\FileTarget([
+            'logFile' => '@storage/logs/craft-errors.log',
+            'levels' => ['error'],
+            'enableRotation' => true,
+            ]);
+        Craft::getLogger()->dispatcher->targets[] = $errorTarget;
     }
 }

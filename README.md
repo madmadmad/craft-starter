@@ -1,78 +1,62 @@
-# Craft Starter
-Setup for Forge.
+# Craft Nitro + Laravel Mix
 
-## I. Installation
-Replace all instances of `projectname` with the name you want to use for your project folder.
+Laravel Mix is a frontend build tool that utilizes Webpack under the hood to process and bundle CSS and JavaScript (and more, if you want). Laravel Mix is in no way coupled to Craft Nitro, but this setup is configured specifically to work with Nitro. 
 
-### Terminal
+## Technologies Utilized
 
-```
-cd Documents/Sites
-composer create-project madhouse/craft-starter projectname
-cd projectname
-npm install
-git init
-git add .
-git commit -m 'project created'
-```
+- Laravel Mix (Webpack)
+- Webpack Dev Server (for Hot Module Reloading)
+- Twigpack (Craft CMS plugin)
 
-### Github
-Create a blank repo in github.
+## Folder Structure and What to Look For
 
-### Terminal
-```
-git remote add origin https://github.com/madmadmad/projectname.git
-git push -u origin master
-```
+### Input Files
 
-### Forge
-At this point, you'll need to provision a server from Forge. Once the server is provisioned:
-1. Create a database for your craft install to use. Write down the credentials.
-2. On the network tab, create a MYSQL exception on port 3306 for the IP `24.52.113.58`
+`src/*`
 
-More Forge instructions available (here)[https://github.com/madmadmad/craft-starter/wiki/Forge-Server-Setup].
+Files to be edited are in the `src` directory of the project root. 
 
-### Terminal
-Return to terminal. You should be in the project folder.
-```
-./craft setup
-```
-This will install craft via command line. Use your server IP, database credentials, and the defaults to complete. 
+### Output Files
 
-### Forge
-Create a new site on your server. In the site screen:
+- Development
 
-1. Click Git repository
-2. Enter the path to the repo you created on github earlier. Make sure install composer dependencies is checked.
-3. Install
-4. Select Files > Edit Environment File
-5. Copy the contents of the .env file in your local project. Update the environment and DB_SERVER (localhost).
-6. Enable Quick Deploy, and then Deploy Now
+  Development files get saved to `public/build` See "Development Caveats" below for more details.
+  
+- Production
 
-### Domains
-You'll need to set up your dev domain in homestead and in Hover.
+  Production bundles are saved to `public/assets/dist/`
 
-More Homestead instructions available (here)[https://github.com/madmadmad/craft-starter/wiki/Using-Homestead].
 
-## II. Versioning
-There is a twig variable in the `_layout.html` file. Updating that variable will version bump all css and js.
+#### Why 2 Outputs?
 
-## III. CSS
+Having two separate build processes allows for more efficient handling of files. It doesn't make sense to autoprefix the CSS in development just as it doesn't make sense to have hot module reloading in production.
 
-This setup uses [PurifyCSS](https://github.com/purifycss/grunt-purifycss) to remove unused CSS from the compiled file. Read more about the [CSS setup](https://github.com/madmadmad/craft-starter/wiki/CSS) for the project.
+#### Development Caveats
 
-## IV. Javascript
+The output of the Development build process is unique because of its utilization of Webpack Dev Server. Unlike Grunt or Gulp, Webpack Dev Server actually spins up its own Node server to listen for and process file changes. *Everything lives in memory.* This keeps things really fast but it also means that files are not actually written anywhere.
 
-This setup uses [loadjs](https://github.com/muicss/loadjs) to asynchronously load in js dependencies and trigger init functions. Read more about the [CSS setup](https://github.com/madmadmad/craft-starter/wiki/CSS) for the project.
+#### Hot Module Reloading
 
-## V. Email
+Hot Module Reloading, part of Webpack Dev Server, listens for changes to files, finds the diff of those changes, and injects that diff into the page, without refreshing the page. This applies to _both_ CSS and JavaScript. 
 
-This setup includes [MJML](https://mjml.io/) for creating html emails. More documentation coming soon.
 
-## VI. Live Reload
+## How Does It Work?
 
-Live reload is turned on by default and set to watch the main style and javascript files, as well as any .html files in the templates folder.
+This Laravel Mix configuration has two modes, as hinted at above:
+  1. Development
+  2. Production
 
-## VII. Server Setup
+In both instances, Mix outputs a `manifest.json` file, which is a complete listing of all files that have been created by the build process. This is where **Twigpack** comes in. Twigpack references the `manfiest,json` to know where to find the specific files. Instead of putting an absolute path to a CSS or JS file in the templates, we use a Twigpack tag indicating what filename we want to look for. e.g. `{{ craft.twigpack.includeJsModule("/js/app.js") }}`. 
 
-This setup is configured to work with Forge deployment. Read more about [setting up a new server](https://github.com/madmadmad/craft-starter/wiki/Forge-Server-Setup) through Forge.
+#### Development
+
+1. The Development configuration process our JavaScript from `./src/js/app.js` and also handles our SCSS in `./src/scss/app.scss`. Source maps are built for each for a better development and debugging experience. 
+
+2. A Webpack Dev Server (WDS) is initialized and works behind the scenes to provide Hot Module Reloading - file diff injection mentioned earlier. **Note:** since WDS does not touch our template files, it cannot inject or reload pages upon template changes. 
+
+3. (Optional) Browserync proxies the development site, delivering it through `localhost:3000` and listens for any changes to our templates. Upon change, the browser refreshes. Browserync can listen for CSS/JS changes as well, but does not inject JS the same way WDS can. Another benefit of Browserync is that it exposes your local site to other devices on the network, allowing you to view the site on your phone or a coworkers computer. As you'd guess, the view is synced, so as one device scrolls, the other device follows.
+
+#### Production
+
+1. JavaScript and CSS are minified and versioned to allow for easy caching and cache-busting. No more v-bumps. CSS is autoprefixed at this stage. 
+2. Vendor folders are extracted 

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{0:function(n,e,o){o("kOmT"),n.exports=o("T4fG")},O7X1:function(n,e){console.log("Hello from the navigation.js file.")},T4fG:function(n,e){},kOmT:function(n,e,o){"use strict";o.r(e);o("O7X1");document.getElementById("slider-example")&&o.e(2).then(o.t.bind(null,"uIdm",7)).then((function(n){n()}))}},[[0,1]]]);

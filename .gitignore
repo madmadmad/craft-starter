@@ -11,7 +11,7 @@ Thumbs.db
 
 # Development Environment #
 ############################################
-node_modules/*
+/node_modules
 
 
 # Craft #
