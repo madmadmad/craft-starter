@@ -2,6 +2,33 @@
 
 Laravel Mix is a frontend build tool that utilizes Webpack under the hood to process and bundle CSS and JavaScript (and more, if you want). Laravel Mix is in no way coupled to Craft Nitro, but this setup is configured specifically to work with Nitro. 
 
+## Quickstart
+
+#### Composer
+`composer install`
+
+#### NPM
+`npm install` or `yarn`
+
+#### Nitro
+`nitro add`
+
+    Host: `<example>.test`
+    Root: `public`
+
+`nitro db add`
+
+
+#### .env
+
+Make sure your .env file is up to date with your local database name and credentials. ALso make sure the MIX_PUBLIC_URL variable is set to the same as your DEFAULT_SITE_URL variable.
+
+### Fire it Up
+
+`npm run dev` or `yarn dev`
+
+---
+
 ## Technologies Utilized
 
 - Laravel Mix (Webpack)
@@ -59,4 +86,56 @@ In both instances, Mix outputs a `manifest.json` file, which is a complete listi
 #### Production
 
 1. JavaScript and CSS are minified and versioned to allow for easy caching and cache-busting. No more v-bumps. CSS is autoprefixed at this stage. 
-2. Vendor folders are extracted 
+
+#### `Concurrently`
+
+`Concurrently` is a packaged used in this build setup to compile development and production builds at the same time. This means you don't have to swap between npm scripts or remember to run a production build before committing. 
+
+## JavaScript and NPM
+
+Instead of downloading JavaScript libraries and including them manually into the project folder or including them from a CDN in a `<script>` tag, libraries should now be installed via NPM and imported in the appropraite src JS file. (e.g. `app.js` if it's a global library or within a component js file if it's specific to a page or section of the site.)
+
+Most modern JS libraries include instruction for installing via NPM/Yarn. 
+
+## Code Splitting
+
+Our previous setup involved putting all of our vendor libraries into a vendor folder and compiling everything into a single JS file. This lead to large file sizes and the loading of libraries onto pages that did not require them. 
+
+This setup comes with Babel's dynamic-import plugin that allows us to conditionally import a JS file. 
+
+Here's an example: 
+
+```js
+// src/js/app.js
+
+if (document.getElementById("slider-example")) {
+  import(/* webpackChunkName: "SliderExample" */"./components/sliderExample").then(initSliderExample => {
+    initSliderExample();
+  });
+}
+
+// src/js/components/sliderExample.js
+
+import Swiper from 'swiper';
+
+
+const initSliderExample = () => {
+  console.log('Hello from the slider example!');
+  const swiper = new Swiper(...);
+}
+
+export default initSliderExample();
+
+```
+
+In this example, in `app.js` we're first checking if an element with the provided selector exists on the page and if so, loads the provided file `components/sliderExample.js`.
+
+In `components/sliderExample.js` we import any necessary libraries and then setup a function where all of the logic will go. Finally, the function is exported. 
+
+A few things to note here: 
+- This utilizes Promises under the hood, so browsers that do not support Promises natively (IE, etc) need to be polyfilled. 
+- The magic comment `webpackChunkName:` allows us to name this import, which is what the filename will be for the chunk. You can name these whatever you want. 
+
+### Dynamic Imports and `Mix.extract()`
+
+Laravel Mix provides an `extract()` method which automatically separates the custom JavaScript from the vendor files (anything that gets imported). This is a nice feature as it allows for better caching, but it  
