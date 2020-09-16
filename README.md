@@ -2,6 +2,10 @@
 
 Laravel Mix is a frontend build tool that utilizes Webpack under the hood to process and bundle CSS and JavaScript (and more, if you want). Laravel Mix is in no way coupled to Craft Nitro, but this setup is configured specifically to work with Nitro. 
 
+## Sections
+- [Laravel Mix](#laravel-mix)
+
+
 ## Quickstart
 
 #### Composer
@@ -21,13 +25,13 @@ Laravel Mix is a frontend build tool that utilizes Webpack under the hood to pro
 
 #### .env
 
-Make sure your .env file is up to date with your local database name and credentials. ALso make sure the MIX_PUBLIC_URL variable is set to the same as your DEFAULT_SITE_URL variable.
+Make sure your .env file is up to date with your local database name and credentials.
 
 ### Fire it Up
 
 `npm run dev` or `yarn dev`
 
----
+# [Laravel Mix](#laravel-mix)
 
 ## Technologies Utilized
 
@@ -138,4 +142,14 @@ A few things to note here:
 
 ### Dynamic Imports and `Mix.extract()`
 
-Laravel Mix provides an `extract()` method which automatically separates the custom JavaScript from the vendor files (anything that gets imported). This is a nice feature as it allows for better caching, but it  
+Laravel Mix provides an `extract()` method which automatically separates the custom JavaScript from the vendor files (anything that gets imported). This is a nice feature as it allows for better caching, but it doesn't work so well with the dynamic-import approach mentioned previously. This is because the `mix.extract()` method will automatically pull out any imported vendor files, whether they're behind a conditional or not. This means we don't get any of the performance benefits from dynamically including imports.
+
+### Asset Versioning
+
+With the `version()` method (found in the production config settings), a hash ID is appended to the bundled file in the manifest. Any time a file changes the file hash gets updated. Think of it like an automatic version bump.
+
+## Twigpack
+
+The Craft plugin Twigpack is used to pull in the asset bundles by referencing the mix-manifest.json file that Mix outputs. This makes it convenient to switch between environments by not having to worry about the correct path or location of assets.
+
+See it in action in `templates/_includes/global/head.twig` or view the [documentation](https://nystudio107.com/docs/twigpack).
