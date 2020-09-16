@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{0:function(n,o,i){i("kOmT"),n.exports=i("T4fG")},O7X1:function(n,o){console.log("Hello from the navigation.js file.")},T4fG:function(n,o){},kOmT:function(n,o,i){"use strict";i.r(o);i("O7X1")}},[[0,1]]]);
