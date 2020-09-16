@@ -1,4 +1,3 @@
-let DashboardPlugin = require('webpack-dashboard/plugin');
 let mix = require('laravel-mix');
 
 // ? ========== DEVELOPMENT SETTINGS ==========
@@ -60,8 +59,6 @@ if(!mix.inProduction()){
     })
     .version()
 }
-
-
 
 // ? Disables system notifications on build
 mix.disableNotifications();
