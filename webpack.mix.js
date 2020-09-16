@@ -23,9 +23,6 @@ if(!mix.inProduction()){
           'Access-Control-Allow-Origin': '*'
         }
       },
-      plugins: [
-        new DashboardPlugin(),
-      ],
     });
 
   // ! Optional - disable this chunk if you don't want to run at localhost:3000
@@ -33,7 +30,7 @@ if(!mix.inProduction()){
   // ? Webpack Dev Server does not listen to html/twig changes because it doesn't process them
   mix.browserSync({
     // ? Defined in the .env file - sameas default site url
-    proxy: process.env.MIX_PUBLIC_URL,
+    proxy: process.env.DEFAULT_SITE_URL,
     watch: true,
     watchOptions: {
       ignoreInitial: true,
@@ -45,9 +42,10 @@ if(!mix.inProduction()){
   
 } else {
   // ? ========== PRODUCTION SETTINGS ==========
+  // ⬇️ Keeps component files in the correct folder.
   mix.webpackConfig({
     output: {
-      chunkFilename: "js/components/[name].[chunkhash:8].js",
+      chunkFilename: "js/components/[name].js",
     }
   });
   mix.setPublicPath('public/assets/dist')
