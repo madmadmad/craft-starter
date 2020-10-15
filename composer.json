@@ -1,12 +1,19 @@
 {
   "require": {
-    "craftcms/cms": "^3.5.9",
-    "nystudio107/craft-twigpack": "^1.2.5",
-    "vlucas/phpdotenv": "^3.4.0",
     "craftcms/aws-s3": "^1.2.11",
+    "craftcms/cms": "^3.5.9",
+    "craftcms/feed-me": "^4.2.3",
     "craftcms/redactor": "^2.7.4",
     "doublesecretagency/craft-cpcss": "^2.2.1",
-    "verbb/super-table": "^2.6.2"
+    "ether/seo": "3.6.6",
+    "nystudio107/craft-imageoptimize": "^1.6.16",
+    "nystudio107/craft-twigpack": "^1.2.5",
+    "sebastianlenz/linkfield": "^1.0.23",
+    "supercool/buttonbox": "^2.0.4",
+    "topshelfcraft/wordsmith": "^3.3.0.1",
+    "verbb/icon-picker": "^1.1.9",
+    "verbb/super-table": "^2.6.2",
+    "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
     "yiisoft/yii2-shell": "^2.0.3"

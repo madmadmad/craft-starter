@@ -1,4 +1,4 @@
-dateModified: 1600108477
+dateModified: 1600369176
 email:
   fromEmail: dev@madmadmad.com
   fromName: 'Craft Starter'
@@ -12,6 +12,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '1.2'
+  buttonbox:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   cp-css:
     edition: standard
     enabled: true
@@ -20,6 +24,51 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.1.1
+    settings:
+      description: ''
+      facebookAppId: ''
+      metaTemplate: ''
+      removeAlternateUrls: ''
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\r\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\r\n\r\n{# Disallows #}\r\n{% if craft.app.config.env != 'production' %}\r\n\r\n{# Disallow access to everything when NOT in production #}\r\nUser-agent: *\r\nDisallow: /\r\n\r\n{% else %}\r\n\r\n{# Disallow access to cpresources/ when live #}\r\nUser-agent: *\r\nDisallow: /cpresources/\r\n\r\n{% endif %}"
+      sitemapLimit: '1000'
+      sitemapName: sitemap
+      socialImage: null
+      title:
+        -
+          __assoc__:
+            -
+              - key
+              - '1'
+            -
+              - locked
+              - '0'
+            -
+              - template
+              - '{title}'
+        -
+          __assoc__:
+            -
+              - key
+              - '2'
+            -
+              - locked
+              - '1'
+            -
+              - template
+              - ' - {{ siteName }}'
+      titleSuffix: null
+      twitterHandle: ''
   super-table:
     edition: standard
     enabled: true
@@ -28,6 +77,14 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  wordsmith:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.0.0.0
 system:
   edition: solo
   live: true

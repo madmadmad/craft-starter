@@ -1,0 +1,18 @@
+contentColumnType: string(1440)
+fieldGroup: a3e39be1-6cc6-4282-8292-b85308af9a68
+handle: subhead
+instructions: ''
+name: Subhead
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 360
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

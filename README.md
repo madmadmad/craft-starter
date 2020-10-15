@@ -85,7 +85,7 @@ In both instances, Mix outputs a `manifest.json` file, which is a complete listi
 
 2. A Webpack Dev Server (WDS) is initialized and works behind the scenes to provide Hot Module Reloading - file diff injection mentioned earlier. **Note:** since WDS does not touch our template files, it cannot inject or reload pages upon template changes. 
 
-3. (Optional) Browserync proxies the development site, delivering it through `localhost:3000` and listens for any changes to our templates. Upon change, the browser refreshes. Browserync can listen for CSS/JS changes as well, but does not inject JS the same way WDS can. Another benefit of Browserync is that it exposes your local site to other devices on the network, allowing you to view the site on your phone or a coworkers computer. As you'd guess, the view is synced, so as one device scrolls, the other device follows.
+3. (Optional) Browserync proxies the development site, delivering it through `localhost:3000` and listens for any changes to our templates. Upon change, the browser refreshes. Browsersync can listen for CSS/JS changes as well, but does not inject JS the same way WDS can. Another benefit of Browserync is that it exposes your local site to other devices on the network, allowing you to view the site on your phone or a coworkers computer. As you'd guess, the view is synced, so as one device scrolls, the other device follows.
 
 #### Production
 
@@ -93,7 +93,7 @@ In both instances, Mix outputs a `manifest.json` file, which is a complete listi
 
 #### `Concurrently`
 
-`Concurrently` is a packaged used in this build setup to compile development and production builds at the same time. This means you don't have to swap between npm scripts or remember to run a production build before committing. 
+`Concurrently` is a package used in this build setup to compile development and production builds at the same time. This means you don't have to swap between npm scripts or remember to run a production build before committing. 
 
 ## JavaScript and NPM
 
