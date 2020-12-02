@@ -15,7 +15,7 @@ if(module.hot){
 // ! In this case, pages that have an element with an ID of "slider-example" will load this JS file.
 // ! This is a huge win for performance. No need to load heavy JS libraries on every page if it doesn't need it.
 if (document.getElementById("slider-example")) {
-  import(/* webpackChunkName: "SliderExample" */"./components/sliderExample").then(initSliderExample => {
-    initSliderExample();
+  import("./components/sliderExample" /* webpackChunkName: "SliderExample" */).then(instance => {
+    instance.initSliderExample();
   });
 }
