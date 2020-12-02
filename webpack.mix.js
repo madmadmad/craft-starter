@@ -1,5 +1,5 @@
 let mix = require('laravel-mix');
-
+const purgecss = require('@fullhuman/postcss-purgecss');
 // ? ========== DEVELOPMENT SETTINGS ==========
 if(!mix.inProduction()){
   mix.setPublicPath('public/build/')
@@ -10,10 +10,13 @@ if(!mix.inProduction()){
   // ? This sets up hot module reloading 
   // ? host 0.0.0.0 enables enables nitro to pick up the devserver
   mix.webpackConfig({
+      // fixes hmr bug introduced in Webpack 5
+      target: 'web',
       output: {
         publicPath: "http://0.0.0.0:8080/",
       },
       devServer:{
+        public: 'http://0.0.0.0:8080/',
         host: '0.0.0.0',
         port: 8080,
         sockHost: '0.0.0.0',
@@ -44,7 +47,7 @@ if(!mix.inProduction()){
   // ⬇️ Keeps component files in the correct folder.
   mix.webpackConfig({
     output: {
-      chunkFilename: "js/components/[name].js",
+      chunkFilename: "assets/dist/js/components/[name].js",
     }
   });
   mix.setPublicPath('public/assets/dist')
@@ -52,9 +55,16 @@ if(!mix.inProduction()){
     .sass('./src/scss/app.scss', 'css')
     .options({
       postCss: [
+        require('postcss-preset-env'),
         require('autoprefixer')({
-          grid: true,
+          flexbox: true,
+          grid: "autoplace"
         }),
+        require('cssnano'),
+        purgecss({
+          content: ['./templates/**/*.html', './templates/**/*.twig'],
+          safelist: []
+        })
       ],
     })
     .version()
