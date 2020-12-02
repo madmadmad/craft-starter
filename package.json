@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --raw -k  \"npm run hot\" \"npm run prod \" ",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production -- --watch -s &> /dev/null",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "concurrently --raw -k  \"npx mix watch --hot\" \"npx mix --production -- -s &> /dev/null\" ",
+    "development": "npx mix",
+    "watch": "npx mix watch",
+    "hot": "npx mix watch --hot",
+    "prod": "npx mix --production"
   },
   "keywords": [],
   "author": "Andrew Menich",
@@ -21,17 +20,22 @@
     "browser-sync-webpack-plugin": "^2.0.1",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
-    "laravel-mix": "^5.0.4",
+    "laravel-mix": "next",
     "laravel-mix-stylelint": "^0.2.0",
+    "postcss": "^8.1.1",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11",
-    "webpack-dashboard": "^3.2.0"
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "css-loader": "^5.0.0",
     "normalize.css": "^8.0.1",
-    "vue": "^2.6.11"
+    "postcss-loader": "^4.0.4",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^2.0.0",
+    "vue": "^2.6.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }
