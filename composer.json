@@ -2,6 +2,12 @@
   "name": "madhouse/craft-starter",
   "description": "A Craft CMS boilerplate.",
   "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Madhouse",
+      "homepage": "https://madmadmad.com"
+    }
+  ],
   "require": {
     "craftcms/aws-s3": "^1.2.11",
     "craftcms/cms": "^3.6.0",
