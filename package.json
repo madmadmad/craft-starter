@@ -1,41 +1,41 @@
 {
   "name": "craft-starter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --raw -k  \"npx mix watch --hot\" \"npx mix --production -- -s &> /dev/null\" ",
+    "preinstall": "if test \"$(node -v)\" != \"$(cat .nvmrc)\" ; then echo \"\\033[31m--------\n Your version of Node does not match the required version listed in .nvmrc. Try running: \\033[34m nvm use \\033[31m before installing again.\n--------\n\" && exit 1 ; fi",
+    "dev": "concurrently --names \"DEVELOPMENT,PRODUCTION\" --raw --kill-others-on-fail  \"npx mix watch --hot\" \"npx mix --production &>/dev/null \"",
     "development": "npx mix",
     "watch": "npx mix watch",
     "hot": "npx mix watch --hot",
-    "prod": "npx mix --production"
+    "prod": "npx mix --production",
+    "criticalcss": "npx mix --production --criticalcss"
   },
   "keywords": [],
-  "author": "Andrew Menich",
+  "author": "Madhouse",
   "license": "ISC",
+  "engines": {
+    "node": ">= 12.14.0"
+  },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.10.4",
-    "browser-sync": "^2.26.12",
-    "browser-sync-webpack-plugin": "^2.0.1",
-    "concurrently": "^5.2.0",
-    "cross-env": "^7.0.2",
-    "laravel-mix": "next",
-    "laravel-mix-stylelint": "^0.2.0",
-    "postcss": "^8.1.1",
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "2.2.2",
+    "concurrently": "^5.3.0",
+    "cssnano": "^4.1.10",
+    "imports-loader": "^1.2.0",
+    "laravel-mix": "^6.0.0",
+    "postcss": "^8.1.10",
+    "postcss-preset-env": "^6.7.0",
     "resolve-url-loader": "^3.1.0",
-    "sass": "^1.26.10",
+    "sass": "^1.29.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "script-loader": "^0.7.2"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "css-loader": "^5.0.0",
-    "normalize.css": "^8.0.1",
-    "postcss-loader": "^4.0.4",
-    "postcss-preset-env": "^6.7.0",
-    "style-loader": "^2.0.0",
-    "vue": "^2.6.11",
-    "webpack-dev-server": "^3.11.0"
+    "normalize.css": "^8.0.1"
   }
 }

@@ -1,10 +1,11 @@
 let mix = require('laravel-mix');
 const purgecss = require('@fullhuman/postcss-purgecss');
+
 // ? ========== DEVELOPMENT SETTINGS ==========
 if(!mix.inProduction()){
   mix.setPublicPath('public/build/')
-     .js("./src/js/app.js", "js")
-     .sass("./src/scss/app.scss", 'css')
+     .js("./src/js/main.js", "js")
+     .sass("./src/scss/main.scss", 'css')
      .sourceMaps(true, 'source-map')
      
   // ? This sets up hot module reloading 
@@ -19,8 +20,6 @@ if(!mix.inProduction()){
         public: 'http://0.0.0.0:8080/',
         host: '0.0.0.0',
         port: 8080,
-        sockHost: '0.0.0.0',
-        sockPort: 8080,
         headers: {
           'Access-Control-Allow-Origin': '*'
         }
@@ -47,12 +46,27 @@ if(!mix.inProduction()){
   // ⬇️ Keeps component files in the correct folder.
   mix.webpackConfig({
     output: {
-      chunkFilename: "assets/dist/js/components/[name].js",
+      publicPath: "/assets/dist/",
+      chunkFilename: "js/components/[name].min.js"
+    },
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /(bower_components)/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: Config.babel()
+            }
+          ]
+        }
+      ]
     }
   });
   mix.setPublicPath('public/assets/dist')
-    .js('./src/js/app.js', 'js')
-    .sass('./src/scss/app.scss', 'css')
+    .js('./src/js/main.js', 'js')
+    .sass('./src/scss/main.scss', 'css')
     .options({
       postCss: [
         require('postcss-preset-env'),
@@ -62,7 +76,7 @@ if(!mix.inProduction()){
         }),
         require('cssnano'),
         purgecss({
-          content: ['./templates/**/*.html', './templates/**/*.twig'],
+          content: ['./templates/**/*.html', './templates/**/*.twig', './src/js/**/*.js'],
           safelist: []
         })
       ],

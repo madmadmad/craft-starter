@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0
+- removed Grunt and replaced with Laravel Mix
+- Craft 3.6 plus several regularly used plugins
+
 ## 1.0.10.5
 
 - added concat pass to Grunt to combine third-party folder with main.css

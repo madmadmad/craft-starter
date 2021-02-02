@@ -1,0 +1,10 @@
+.image-demo{
+  width: 768px;
+  height: 768px;
+  // use relative path from the current scss file to access the src/images folder NOT the public/assets/images folder
+  // webpack will figure out the rest 
+  background-image: url('../../images/topography.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+
+}
