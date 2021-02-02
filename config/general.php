@@ -5,8 +5,9 @@
  * All of your system's general configuration settings go in here. You can see a
  * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
  *
- * @see craft\config\GeneralConfig
+ * @see \craft\config\GeneralConfig
  */
+
 use craft\helpers\App;
 
 return [
@@ -14,9 +15,6 @@ return [
     '*' => [
         // Default Week Start Day (0 = Sunday, 1 = Monday...)
         'defaultWeekStartDay' => 0,
-
-        // Enable CSRF Protection (recommended)
-        'enableCsrfProtection' => true,
 
         // Whether generated URLs should omit "index.php"
         'omitScriptNameInUrls' => true,
@@ -26,30 +24,38 @@ return [
 
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => App::env('SECURITY_KEY'),
+
+        'errorTemplatePrefix' => "pages/_errors/",
+
+        // Whether to save the project config out to config/project.yaml
+        // (see https://docs.craftcms.com/v3/project-config.html)
+        'useProjectConfigFile' => true,
+        // Disable project config changes on production
+        'allowAdminChanges' => false,
     ],
 
     // Dev environment settings
     'dev' => [
+        // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
+        'devMode' => true,
+
+        // Only allow control panel changes on local.
+        'allowAdminChanges' => true,
+
         // Base site URL
         'siteUrl' => null,
-
-        // Dev Mode (see https://craftcms.com/support/dev-mode)
-        'devMode' => true,
     ],
 
     // Staging environment settings
     'staging' => [
         // Base site URL
         'siteUrl' => null,
-        // Set this to `false` to prevent administrative changes from being made on staging
-        'allowAdminChanges' => true,
     ],
 
     // Production environment settings
     'production' => [
+
         // Base site URL
         'siteUrl' => null,
-        // Set this to `false` to prevent administrative changes from being made on production
-        'allowAdminChanges' => true,
     ],
 ];

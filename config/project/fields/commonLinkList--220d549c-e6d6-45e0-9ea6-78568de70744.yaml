@@ -1,0 +1,18 @@
+contentColumnType: string
+fieldGroup: a3e39be1-6cc6-4282-8292-b85308af9a68
+handle: commonLinkList
+instructions: ''
+name: 'Common Link List'
+searchable: false
+settings:
+  contentTable: '{{%stc_commonlinklist}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

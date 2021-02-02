@@ -1,19 +1,9 @@
-{% if craft.app.config.general.devMode %}
-  <script src="https://localhost:9000/livereload.js"></script>
+
+{% if not craft.app.config.general.devMode %}
+  {# Google Analytics Go Here #}
 {% endif %}
 
-<script>
-  window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName|e('js') }}";
-  window.csrfTokenValue = "{{ craft.app.request.csrfToken|e('js') }}";
+{# Splitting out output files in this way allows for better longterm caching of vendor files.  #}
+{# See the `mix.extract()` method in `webpack.mix.js` and https://laravel-mix.com/docs/5.0/extract #}
 
-  loadjs('/js/main.js?v={{version}}', function() {
-    initMain();
-
-    if ($('.map').length) {
-      loadjs(['/js/map.js?v={{version}}'], function() {
-        initMap();
-      });
-    }
-
-  });
-</script>
+{{ craft.twigpack.includeJsModule("/js/app.js") }}

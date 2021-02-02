@@ -1,0 +1,114 @@
+field: 40f48b13-6201-4302-9869-88efe6adaa8b
+fieldLayouts:
+  5cb53a6e-b3c5-4da0-bc01-82a7d36d630c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 393e06c0-baf4-46da-9a55-06399823fcfe
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0f5dabc2-a15e-47d9-91de-66ca639d945b
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0f5dabc2-a15e-47d9-91de-66ca639d945b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: platformLink
+    instructions: ''
+    name: 'Platform Link'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  393e06c0-baf4-46da-9a55-06399823fcfe:
+    contentColumnType: string
+    fieldGroup: null
+    handle: platform
+    instructions: ''
+    name: Platform
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Facebook
+            -
+              - value
+              - facebook
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Instagram
+            -
+              - value
+              - instagram
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Twitter
+            -
+              - value
+              - twitter
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - YouTube
+            -
+              - value
+              - youtube
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - LinkedIn
+            -
+              - value
+              - linkedin
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
