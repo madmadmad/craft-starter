@@ -27,6 +27,9 @@ Laravel Mix is a frontend build tool that utilizes Webpack under the hood to pro
 
 Make sure your .env file is up to date with your local database name and credentials.
 
+#### Craft App ID & Security Key Generation
+`./craft setup/app-id && ./craft setup/security-key`
+
 ### Fire it Up
 
 `npm run dev` or `yarn dev`
