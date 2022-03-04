@@ -65,6 +65,7 @@ if(!mix.inProduction()){
     }
   });
   mix.setPublicPath('public/assets/dist')
+    .setResourceRoot('/assets/dist')
     .js('./src/js/main.js', 'js')
     .sass('./src/scss/main.scss', 'css')
     .options({
