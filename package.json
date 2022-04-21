@@ -46,10 +46,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://MadKelsey@github.com/madmadmad/craft-starter.git"
+    "url": "git+https://MadKelsey@github.com/madmadmad/mannik-smith-2.git"
   },
   "bugs": {
-    "url": "https://github.com/madmadmad/craft-starter/issues"
+    "url": "https://github.com/madmadmad/mannik-smith-2/issues"
   },
-  "homepage": "https://github.com/madmadmad/craft-starter#readme"
+  "homepage": "https://github.com/madmadmad/mannik-smith-2#readme"
 }
