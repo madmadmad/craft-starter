@@ -1,6 +1,7 @@
 let mix = require('laravel-mix');
 const purgecss = require('@fullhuman/postcss-purgecss');
 
+
 // ? ========== DEVELOPMENT SETTINGS ==========
 if(!mix.inProduction()){
   mix.setPublicPath('public/build/')
