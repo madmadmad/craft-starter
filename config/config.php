@@ -4,7 +4,7 @@ return [
     // Global settings
     '*' => [
         // If `devMode` is on, use webpack-dev-server to all for HMR (hot module reloading)
-        'useDevServer' => false,
+        'useDevServer' => true,
         // Enforce Absolute URLs on includes
         'useAbsoluteUrl' => true,
         // The JavaScript entry from the manifest.json to inject on Twig error pages
@@ -24,8 +24,8 @@ return [
         ],
         // webpack-dev-server config
         'devServer' => [
-            'manifestPath' => 'http://192.168.64.1:8080/',
-            'publicPath' => 'http://192.168.64.1:8080/',
+            'manifestPath' => 'http://127.0.0.1:8081/',
+            'publicPath' => 'http://mannik-smith-2.test:8081/',
         ],
         // Bundle to use with the webpack-dev-server
         'devServerBuildType' => 'modern',

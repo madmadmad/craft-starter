@@ -1,132 +1,104 @@
-dateModified: 1612289019
+dateModified: 1650573526
 email:
-  fromEmail: dev@madmadmad.com
+  fromEmail: kelsey@madmadmad.com
   fromName: 'Craft Starter'
   transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    4e2c308a-d0d1-4ad6-9a24-9c451efa5d3f: 'Craft Starter' # Craft Starter
+    8f9e36f4-7d7b-41d7-830a-e3441bfaedbe: 'Craft Starter' # Craft Starter
+    265f9b71-0a09-44f1-ba12-16db00854b2b: 'Public Schema' # Public Schema
+    334fb8d2-f3c8-4c3a-ab4d-d62205ccaa0e: 'Craft Starter' # Craft Starter
+    42064183-f841-44d2-bba1-c259e2f9bd30: 'Craft Starter' # Craft Starter
+    a6cfe0c4-4143-4114-adb1-171d55e821db: Common # Common
 plugins:
-  aws-s3:
-    edition: standard
-    enabled: true
-    schemaVersion: '1.2'
   blitz:
     edition: standard
     enabled: true
-    licenseKey: OTQE23K5Q7ITWSDMVLKCDII2
-    schemaVersion: 3.6.6
-  buttonbox:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  cp-css:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
+    schemaVersion: 3.10.0
   feed-me:
     edition: standard
     enabled: true
-    schemaVersion: 4.3.0
-  icon-picker:
-    edition: standard
-    enabled: true
-    licenseKey: CH1A6ZEHTNCHSJ3FVNSJHTWG
-    schemaVersion: 1.0.1
+    schemaVersion: 4.4.0
   image-optimize:
     edition: standard
     enabled: true
-    licenseKey: VEUVZT5F7IHTGUE6SPPQ2Z3X
+    licenseKey: W2VGE5BRQB8GOG3PW698S3R4
+    schemaVersion: 1.0.0
+    settings:
+      allowUpScaledImageVariants: false
+      assetVolumeSubFolders: true
+      autoSharpenScaledImages: true
+      capSilhouetteSvgSize: true
+      createColorPalette: true
+      createPlaceholderSilhouettes: false
+      imageTransformTypeSettings:
+        __assoc__:
+          -
+            - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
+            -
+              __assoc__:
+                -
+                  - domain
+                  - ''
+                -
+                  - apiKey
+                  - ''
+                -
+                  - securityToken
+                  - ''
+                -
+                  - unsharpMask
+                  - '20'
+          -
+            - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
+            -
+              __assoc__:
+                -
+                  - baseUrl
+                  - ''
+          -
+            - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
+            -
+              __assoc__:
+                -
+                  - baseUrl
+                  - ''
+                -
+                  - securityKey
+                  - ''
+                -
+                  - includeBucketPrefix
+                  - ''
+      lowerQualityRetinaImageVariants: true
+      sharpenScaledImagePercentage: 80
+      transformClass: nystudio107\imageoptimize\imagetransforms\CraftImageTransform
+  mix:
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
   redactor:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  retour:
-    edition: standard
-    enabled: true
-    licenseKey: ZJKSF4OXNLVIXPU9XJH1C3JD
-    schemaVersion: 3.0.9
   seo:
     edition: standard
     enabled: true
-    schemaVersion: 3.1.1
-    settings:
-      description: ''
-      facebookAppId: ''
-      metaTemplate: ''
-      removeAlternateUrls: ''
-      robots:
-        - ''
-        - ''
-        - ''
-        - ''
-        - ''
-        - ''
-      robotsTxt: "{# Sitemap URL #}\r\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\r\n\r\n{# Disallows #}\r\n{% if craft.app.config.env != 'production' %}\r\n\r\n{# Disallow access to everything when NOT in production #}\r\nUser-agent: *\r\nDisallow: /\r\n\r\n{% else %}\r\n\r\n{# Disallow access to cpresources/ when live #}\r\nUser-agent: *\r\nDisallow: /cpresources/\r\n\r\n{% endif %}"
-      sitemapLimit: '1000'
-      sitemapName: sitemap
-      socialImage: null
-      title:
-        -
-          __assoc__:
-            -
-              - key
-              - '1'
-            -
-              - locked
-              - '0'
-            -
-              - template
-              - '{title}'
-        -
-          __assoc__:
-            -
-              - key
-              - '2'
-            -
-              - locked
-              - '1'
-            -
-              - template
-              - ' - {{ siteName }}'
-      titleSuffix: null
-      twitterHandle: ''
-  seomatic:
-    edition: standard
-    enabled: true
-    licenseKey: G4AFYGPPF3IBVX9LCH54ZZ2C
-    schemaVersion: 3.0.9
-  sprig:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.1
+    schemaVersion: 3.2.0
   super-table:
     edition: standard
     enabled: true
     schemaVersion: 2.2.1
-  twigpack:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  typedlinkfield:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  typogrify:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  wordsmith:
-    edition: standard
-    enabled: true
-    schemaVersion: 0.0.0.0
 system:
   edition: solo
   live: true
-  name: 'Craft Starter'
-  schemaVersion: 3.6.1
+  name: 'Mannik Smith'
+  retryDuration: null
+  schemaVersion: 3.7.33
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
   defaultGroup: null
-  photoSubpath: ''
+  photoSubpath: null
   photoVolumeUid: null
   requireEmailVerification: true

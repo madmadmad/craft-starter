@@ -1,20 +1,21 @@
 {
-  "name": "craft-starter",
+  "name": "mannik-smith",
   "version": "2.0.0",
-  "description": "",
+  "description": "Laravel Mix is a frontend build tool that utilizes Webpack under the hood to process and bundle CSS and JavaScript (and more, if you want). Laravel Mix is in no way coupled to Craft Nitro, but this setup is configured specifically to work with Nitro.",
   "main": "index.js",
+  "keywords": [],
+  "author": "Madhouse",
+  "license": "ISC",
   "scripts": {
+    "test": "test",
     "preinstall": "if test \"$(node -v)\" != \"$(cat .nvmrc)\" ; then echo \"\\033[31m--------\n Your version of Node does not match the required version listed in .nvmrc. Try running: \\033[34m nvm use \\033[31m before installing again.\n--------\n\" && exit 1 ; fi",
-    "dev": "concurrently --names \"DEVELOPMENT,PRODUCTION\" --raw --kill-others-on-fail  \"npx mix watch --hot\" \"npx mix --production &>/dev/null \"",
+    "dev": "NODE_ENV=development npx mix",
     "development": "npx mix",
     "watch": "npx mix watch",
     "hot": "npx mix watch --hot",
     "prod": "npx mix --production",
     "criticalcss": "npx mix --production --criticalcss"
   },
-  "keywords": [],
-  "author": "Madhouse",
-  "license": "ISC",
   "engines": {
     "node": ">= 12.14.0"
   },
@@ -27,15 +28,28 @@
     "concurrently": "^5.3.0",
     "cssnano": "^4.1.10",
     "imports-loader": "^1.2.0",
-    "laravel-mix": "^6.0.0",
-    "postcss": "^8.1.10",
+    "laravel-mix": "^6.0.43",
+    "postcss": "^8.3.1",
     "postcss-preset-env": "^6.7.0",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.29.0",
     "sass-loader": "^8.0.2",
-    "script-loader": "^0.7.2"
+    "script-loader": "^0.7.2",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
-  }
+    "copy-webpack-plugin": "^5.1.1",
+    "normalize.css": "^8.0.1",
+    "yarn": "^1.22.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://MadKelsey@github.com/madmadmad/craft-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madmadmad/craft-starter/issues"
+  },
+  "homepage": "https://github.com/madmadmad/craft-starter#readme"
 }

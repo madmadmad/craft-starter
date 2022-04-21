@@ -14,12 +14,12 @@ if(!mix.inProduction()){
       // fixes hmr bug introduced in Webpack 5
       target: 'web',
       output: {
-        publicPath: "http://0.0.0.0:8080/",
+        publicPath: "http://127.0.0.1:8081/",
       },
       devServer:{
-        public: 'http://0.0.0.0:8080/',
-        host: '0.0.0.0',
-        port: 8080,
+        public: 'http://127.0.0.1:8081/',
+        host: '127.0.0.1',
+        port: 8081,
         headers: {
           'Access-Control-Allow-Origin': '*'
         }

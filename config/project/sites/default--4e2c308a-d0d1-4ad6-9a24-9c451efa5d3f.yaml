@@ -4,6 +4,6 @@ handle: default
 hasUrls: true
 language: en-US
 name: 'Craft Starter'
-primary: true
-siteGroup: 8f9e36f4-7d7b-41d7-830a-e3441bfaedbe
+primary: false
+siteGroup: 8f9e36f4-7d7b-41d7-830a-e3441bfaedbe # Craft Starter
 sortOrder: 1

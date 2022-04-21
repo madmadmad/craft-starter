@@ -10,14 +10,16 @@
   ],
   "require": {
     "craftcms/aws-s3": "^1.2.11",
-    "craftcms/cms": "3.7.36",
+    "craftcms/cms": "3.7.38",
     "craftcms/feed-me": "^4.3.4",
-    "craftcms/redactor": "^2.8.5",
+    "craftcms/redactor": "2.10.6",
     "doublesecretagency/craft-cpcss": "^2.2.1",
+    "ether/seo": "3.7.4",
+    "misterbk/mix": "^1.5",
     "nystudio107/craft-imageoptimize": "^1.6",
     "nystudio107/craft-retour": "^3.1.45",
     "nystudio107/craft-seomatic": "^3.3.29",
-    "nystudio107/craft-twigpack": "1.2.15",
+    "nystudio107/craft-twigpack": "^1.2",
     "nystudio107/craft-typogrify": "^1.1.18",
     "putyourlightson/craft-blitz": "^3.7.0",
     "putyourlightson/craft-sprig": "^1.3.1",
@@ -40,6 +42,10 @@
     "optimize-autoloader": true,
     "platform": {
       "php": "7.3"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
     }
   },
   "scripts": {
